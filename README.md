@@ -1,307 +1,68 @@
-<img src="https://s3.amazonaws.com/devmountain/readme-logo.png" width="250" align="right">
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Project Summary
+## Available Scripts
 
-In this project, we will create a very basic React application from scratch that makes use of multiple routes. We will be using the `react-router-dom` package, specifically v4. You can find more documentation to read on your own time here: <a href="https://reacttraining.com/react-router/web/guides/philosophy">Click Me!</a>
+In the project directory, you can run:
 
-## Live Example
+### `npm start`
 
-<a href="https://devmountain.github.io/react-4-mini/#/">Click Me!</a>
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<img src="https://github.com/DevMountain/react-4-mini/blob/solution/readme-assets/1.png" />
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-## Setup
+### `npm test`
 
-* `Fork` and `clone` this repository.
-* `cd` into the project.
-* Run `create-react-app ./` to get a React boilerplate.
-  * Delete `README.md` and rename `README.old.md` back to `README.md`.
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Step 1
+### `npm run build`
 
-### Summary 
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-In this step, we will create three basic components that will be used later for three separate routes.
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-### Instructions
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* Open `src/`.
-* Create a `Route1.js`, `Route2.js`, and `Route3.js`.
-* All three `Route#.js` files should be very basic state-less components.
+### `npm run eject`
 
-### Solution
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-<details>
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<summary> <code> src/Route1.js </code> </summary>
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-```js
-import React from 'react';
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-export default function Route1() {
-  return (
-    <div>
-      Route 1 here!
-    </div>
-  )
-}
-```
+## Learn More
 
-</details>
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-<details>
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-<summary> <code> src/Route2.js </code> </summary>
+### Code Splitting
 
-```js
-import React from 'react';
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-export default function Route2() {
-  return (
-    <div>
-      Route 2 here!
-    </div>
-  )
-}
-```
+### Analyzing the Bundle Size
 
-</details>
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-<details>
+### Making a Progressive Web App
 
-<summary> <code> src/Route3.js </code> </summary>
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-```js
-import React from 'react';
+### Advanced Configuration
 
-export default function Route3() {
-  return (
-    <div>
-      Route 3 here!
-    </div>
-  )
-}
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-</details>
+### Deployment
 
-## Step 2
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### Summary
+### `npm run build` fails to minify
 
-In this step, we will add the `react-router-dom` package to our React project.
-
-### Instructions
-
-* Run `npm install --save react-router-dom`.
-
-### Solution
-
-<img src="https://github.com/DevMountain/react-4-mini/blob/solution/readme-assets/1g.gif" />
-
-## Step 3
-
-### Summary
-
-In this step, we will configure routes using a `routes.js` file.
-
-### Instructions
-
-* Create a new `src/routes.js` file.
-* Open `src/routes.js`.
-* Import `React` from `react`.
-* Import `{ Switch, Route }` from `react-router-dom`.
-* Import the three `src/Route#.js` components.
-* Export by default a `<Switch></Switch>` component.
-* Add three `<Route/>` components for each `src/Route#.js` component inside the exported `<Switch></Switch>` component.
-
-## Solution
-
-<details>
-
-<summary> <code> src/routes.js </code> </summary>
-
-```js
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-// Components
-import Route1 from './Route1';
-import Route2 from './Route2';
-import Route3 from './Route3';
-
-export default (
-  <Switch>
-    <Route exact path="/" component={ Route1 } />
-    <Route path="/2" component={ Route2 } />
-    <Route path="/3" component={ Route3 } />
-  </Switch>
-)
-```
-
-</details>
-
-## Step 4
-
-### Summary
-
-In this step, we'll render the `routes` inside the main `src/App.js` component.
-
-### Instructions
-
-* Open `src/App.js`.
-* Import the `src/routes.js` file.
-* Underneath the `<p></p>` element use `{}` to break out of JSX and render the imported router.
-
-### Solution
-
-<details>
-
-<summary> <code> src/App.js </code> </summary>
-
-```js
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import routes from './routes';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        { routes }
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-</details>
-
-## Step 5
-
-### Summary
-
-In this step, we'll configure our React application to handle routing.
-
-### Instructions
-
-* Open `src/index.js`.
-* Import `HashRouter` from `react-router-dom`.
-* In the `ReactDOM.render` statement, wrap the `<App />` component in a `<HashRouter></HashRouter>` component.
-
-### Solution
-
-<details>
-
-<summary> <code> src/index.js </code> </summary>
-
-```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-
-// Routing
-import { HashRouter } from 'react-router-dom';
-
-ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>
-, document.getElementById('root'));
-
-registerServiceWorker();
-```
-
-</details>
-
-## Step 6
-
-### Summary 
-
-In this step, we'll provide a way for a user to navigate between the routes. Using `react-router-dom`, this is done by using the `<Link></Link>` component.
-
-### Instructions
-
-* Open `src/App.js`.
-* Import `Link` from `react-router-dom`.
-* Above the rendering of the routes, add three `<Link>` components that route to the three different paths configured in `src/routes.js`.
-
-### Solution
-
-<details>
-
-<summary> <code> src/App.js </code> </summary>
-
-```js
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import routes from './routes';
-import { Link } from 'react-router-dom';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <Link to="/">
-          <p>Route 1</p>
-        </Link>
-
-        <Link to="/2">
-          <p>Route 2</p>
-        </Link>
-
-        <Link to="/3">
-          <p>Route 3</p>
-        </Link>
-        
-        { routes }
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-</details>
-
-<br />
-
-<img src="https://github.com/DevMountain/react-4-mini/blob/solution/readme-assets/2g.gif" />
-
-
-## Contributions
-
-If you see a problem or a typo, please fork, make the necessary changes, and create a pull request so we can review your changes and merge them into the master repo and branch.
-
-## Copyright
-
-© DevMountain LLC, 2017. Unauthorized use and/or duplication of this material without express and written permission from DevMountain, LLC is strictly prohibited. Excerpts and links may be used, provided that full and clear credit is given to DevMountain with appropriate and specific direction to the original content.
-
-<p align="center">
-<img src="https://s3.amazonaws.com/devmountain/readme-logo.png" width="250">
-</p>
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
